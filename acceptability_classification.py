@@ -19,8 +19,7 @@ import torch
 from torch.utils.data import TensorDataset, DataLoader, SequentialSampler
 from keras.preprocessing.sequence import pad_sequences
 
-#from transformers import BertTokenizer
-from transformers import BertForSequenceClassification, AdamW, BertConfig, BertPreTrainedModel, BertModel , Adafactor
+from transformers import AdamW, Adafactor
 from transformers import get_linear_schedule_with_warmup
 
 from transformers import XLMForSequenceClassification , XLMRobertaTokenizerFast , XLMTokenizer , XLMRobertaForSequenceClassification
@@ -304,7 +303,6 @@ def run_train(epochs):
 
 losses = run_train(epochs)
 
-# Commented out IPython magic to ensure Python compatibility.
 # plot losses
 import matplotlib.pyplot as plt
 # % matplotlib inline
@@ -372,7 +370,6 @@ def run_test(df_test):
 
           print( "Sentence : {}  Target Label : {}  Prediction Label : {}  \n".format(  i_sentence , i_target , i_pred  ) )
         
-        print("# of sentences: ", len(preds))
 
     print(f"Final Mode Accuracy: {eval_acc/(step+1)}")
 
